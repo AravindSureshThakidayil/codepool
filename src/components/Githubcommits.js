@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Octokit } from '@octokit/rest';
-import octokit from '../token';
 
 const GitHubCommits = ({ username, repo }) => {
   const [commitCount, setCommitCount] = useState(null);
@@ -18,16 +16,14 @@ const GitHubCommits = ({ username, repo }) => {
         let response;
 
         do {
-          response = await octokit.rest.repos.listCommits({
-            owner: username,
-            repo,
-            per_page: 100,
-            page,
-          });
-
-          commits = commits.concat(response.data);
+          response = await fetch(`https://api.github.com/repos/${username}/${repo}/commits?per_page=100&page=${page}`);
+          if (!response.ok) {
+            throw new Error('Network response was not ok ' + response.statusText);
+          }
+          const data = await response.json();
+          commits = commits.concat(data);
           page += 1;
-        } while (response.data.length > 0);
+        } while (response.length > 0);
 
         setCommitCount(commits.length);
       } catch (err) {

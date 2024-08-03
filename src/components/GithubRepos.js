@@ -51,16 +51,23 @@ const GitHubRepos = ({ username }) => {
   }
 
   return (
-    <div class="flex-container">
-      <p>
-        {username} has {publicRepos} public repositories.
-      </p>
+    <div class="flex-container" style={{display:  "flex"}}>
+      <div style={{backgroundColor: "blue", width: "300px", borderRadius: "100px", margin: "20px", boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)"}}>
+      <div style={{
+        margin:"20px", width: "100px", height:"100px", borderRadius:"100%", backgroundColor:"white", placeContent:"center", fontSize:"2em", color:"blue", fontWeight: "900"
+      }}>
+        {publicRepos}
+      </div>
+      </div>
+      <div style={{display: "grid"}}>
       {repoList.length > 0 ? (
         repoList.map((repo) => (
           <div
-            class="flex-items"
+            // class="flex-items"
             key={repo.id}
             style={{
+              // minWidth:"25vw", maxWidth: "25vw",
+              width: "25%",
               marginBottom: "16px",
               padding: "16px",
               backgroundColor: "white",
@@ -105,6 +112,7 @@ const GitHubRepos = ({ username }) => {
       ) : (
         <p>No public repositories found.</p>
       )}
+    </div>
     </div>
   );
 };
