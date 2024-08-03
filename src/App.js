@@ -1,21 +1,21 @@
 // import logo from './logo.svg';
 // import { Octokit } from '@octokit/rest';
-import octokit from './token';
-import './App.css';
-import GitHubRepos from './components/GithubRepos';
 
+import "./App.css";
+import React from "react";
+import GitHubRepos from "./components/GithubRepos";
 
-await octokit.request('GET /user', {
+/* await octokit.request('GET /user', {
   headers: {
     'X-GitHub-Api-Version': '2022-11-28'
   }
 })
-
+ */
 const username = "AravindSureshThakidayil";
 
 function App() {
   // var publicRepos = fetchRepoCount(username);
-  
+
   // console.log(publicRepos);
   return (
     <>
@@ -24,7 +24,7 @@ function App() {
           <h1> Github Profile </h1>
           <h3> {username} </h3>
         </nav>
-
+        
         <GitHubRepos username={username}></GitHubRepos>
       </div>
     </>
