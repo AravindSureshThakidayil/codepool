@@ -7,7 +7,14 @@
   flex-direction: column;
   /* align-content: center; */
 }
-
+#left-part{
+  align-items: left;
+  color: rgb(0, 0, 0);
+  height: 300vh;
+  /* padding: -10px; */
+  display: flex;
+  flex-direction: column;
+}
 nav {
   background-color: slateblue;
   width: 100%;
@@ -37,3 +44,21 @@ nav > div {
   align-items: right;
   width: 50%;
 }
+.flex-container {
+  display: inline-flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: normal;
+  align-items: normal;
+  align-content: normal;
+}
+
+.flex-items:nth-child(1) {
+  display: block;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  align-self: auto;
+  order: 0;
+}
+

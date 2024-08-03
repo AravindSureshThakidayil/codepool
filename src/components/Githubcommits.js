@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Octokit } from '@octokit/rest';
-import { token } from token.js;
+import octokit from '../token';
 
 const GitHubCommits = ({ username, repo }) => {
   const [commitCount, setCommitCount] = useState(null);

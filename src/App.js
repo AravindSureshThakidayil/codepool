@@ -17,18 +17,21 @@ const username = "AravindSureshThakidayil";
 
 function App() {
   // var publicRepos = fetchRepoCount(username);
-  
+
   // console.log(publicRepos);
   return (
     <>
       <div className="App">
         <nav>
-          <h1> Github Profile </h1>
+          <h1> Portfolio </h1>
           <h3> {username} </h3>
         </nav>
-        
-        <GitHubRepos username={username}></GitHubRepos>
-        <GitHubCommits username={username} repo="DotsAndBoxes"></GitHubCommits>
+        <div class="flex-container">
+          <GitHubCommits username={username} repo="DotsAndBoxes"></GitHubCommits>
+          <div class="flex-items">
+            <GitHubRepos username={username} />
+          </div>
+        </div>
       </div>
     </>
   );
