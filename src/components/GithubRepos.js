@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 
 const GitHubRepos = ({ username }) => {
   const [publicRepos, setPublicRepos] = useState(null);
+  const[total_Stars,setStars]=useState(0);
   const [repoList, setRepos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -25,6 +26,7 @@ const GitHubRepos = ({ username }) => {
         }
         const repoCountData = await repoCountResponse.json();
         setPublicRepos(repoCountData.public_repos);
+        
 
         setLoading(false);
       } catch (error) {
@@ -49,13 +51,14 @@ const GitHubRepos = ({ username }) => {
   }
 
   return (
-    <div>
+    <div class="flex-container">
       <p>
         {username} has {publicRepos} public repositories.
       </p>
       {repoList.length > 0 ? (
         repoList.map((repo) => (
           <div
+            class="flex-items"
             key={repo.id}
             style={{
               marginBottom: "16px",
@@ -67,22 +70,28 @@ const GitHubRepos = ({ username }) => {
               transition: "background-color 0.2s",
               cursor: "pointer",
             }}
-            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#f1f5f9")}
-            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "white")}
+            onMouseEnter={(e) =>
+              (e.currentTarget.style.backgroundColor = "#f1f5f9")
+            }
+            onMouseLeave={(e) =>
+              (e.currentTarget.style.backgroundColor = "white")
+            }
           >
-            <h5
-              style={{
-                marginBottom: "8px",
-                fontSize: "1.25rem",
-                fontWeight: "bold",
-                color: "#111827",
-              }}
-            >
-              {repo.name}
-            </h5>
-            <p style={{ fontSize: "1rem", color: "#374151" }}>
-              {repo.description}
-            </p>
+            <div className="flex-container-col">
+              <h5
+                style={{
+                  marginBottom: "8px",
+                  fontSize: "1.25rem",
+                  fontWeight: "bold",
+                  color: "#111827",
+                }}
+              >
+                {repo.name}
+              </h5>
+              <p style={{ fontSize: "1rem", color: "#374151" }}>
+                {repo.description}
+              </p>
+            </div>
             <a
               href={repo.html_url}
               style={{ color: "#3b82f6", textDecoration: "underline" }}

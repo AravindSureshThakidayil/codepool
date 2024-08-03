@@ -21,11 +21,11 @@ function App() {
     <>
       <div className="App">
         <nav>
-          <h1> Github Profile </h1>
+          <h1> Portfolio </h1>
           <h3> {username} </h3>
         </nav>
+
         <div class="flex-container">
-         
           <div class="flex-items">
             <GitHubRepos username={username} />
           </div>
