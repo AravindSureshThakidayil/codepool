@@ -1,5 +1,6 @@
 // import logo from './logo.svg';
-import { Octokit } from '@octokit/rest';
+// import { Octokit } from '@octokit/rest';
+import octokit from './token';
 import './App.css';
 
 
