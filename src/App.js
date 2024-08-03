@@ -24,8 +24,12 @@ function App() {
           <h1> Github Profile </h1>
           <h3> {username} </h3>
         </nav>
-        
-        <GitHubRepos username={username}></GitHubRepos>
+        <div class="flex-container">
+         
+          <div class="flex-items">
+            <GitHubRepos username={username} />
+          </div>
+        </div>
       </div>
     </>
   );
