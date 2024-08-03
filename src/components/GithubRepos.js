@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 const GitHubRepos = ({ username }) => {
   const [publicRepos, setPublicRepos] = useState(null);
-  const[total_Stars,setStars]=useState(0);
+  const [total_Stars,setStars] = useState(0);
   const [repoList, setRepos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
