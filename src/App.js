@@ -4,29 +4,45 @@ import octokit from './token';
 import './App.css';
 
 
-octokit.request("GET /");
+await octokit.request('GET /user', {
+  headers: {
+    'X-GitHub-Api-Version': '2022-11-28'
+  }
+})
+
+const username = "AravindSureshThakidayil";
+
+function fetchRepoCount(username) {
+  const url = `https://api.github.com/users/${username}`;  
+  fetch(url)
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok ' + response.statusText);
+    }
+    return response.json();
+  })
+  .then(data => {
+    return data.public_repos;
+  })
+  .catch(error => {
+    // error = <em>There was a problem with the fetch operation: {error}</em>;
+    console.error(error);
+  });
+}
 
 function App() {
+  var publicRepos = fetchRepoCount(username);
+  
+  // console.log(publicRepos);
   return (
     <>
     <div className="App">
-      <navbar> <h1> Github Profile </h1> 
-      <div>
-        <div className="link">Contact us
-          <div className="dropdown">
-            <p><a href="#contact">Sourav S K</a></p>
-            <p>Aravind Suresh</p>
-          </div>
-        </div>
-        <div className="link">About us
-          <div className="dropdown">
-            <p>Sourav S K</p>
-            <p>Aravind Suresh</p>
-          </div>
-        </div>
-      </div>
-      </navbar>
+      <nav>
+        <h1> Github Profile </h1>
+        <h3> {username} ({publicRepos} repositories) </h3>
+      </nav>
     </div>
+    {/* {error} */}
     <h3 id="contact">Contact</h3>
     </>
   );
