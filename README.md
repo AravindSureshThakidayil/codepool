@@ -22,7 +22,7 @@ This project utilizes the GitHub Public API to create a mini project portfolio. 
 
     ```sh
     git clone https://github.com/AravindSureshThakidayil/codepool.git
-    cd mini-project-portfolio
+    cd codepool
     ```
 
 2. **Install dependencies**
