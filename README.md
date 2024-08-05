@@ -38,7 +38,7 @@ This project utilizes the GitHub Public API to create a mini project portfolio. 
     ```
 
     The application will be available at `http://localhost:3000`.
-
+   
 ## Usage
 
 ### Total Repos made
@@ -50,7 +50,7 @@ The application fetches repositories from the GitHub account specified in the en
 - **Description**: A brief description of the repository.
 
 ## Video
-<video controls><source src="https://youtu.be/LqktVwEhJRs"></video>
+https://youtu.be/LqktVwEhJRs
 
 
 
