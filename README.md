@@ -50,7 +50,7 @@ The application fetches repositories from the GitHub account specified in the en
 - **Description**: A brief description of the repository.
 
 ## Video
-!()[https://youtu.be/LqktVwEhJRs]
+<video controls><source src="https://youtu.be/LqktVwEhJRs"></video>
 
 
 
